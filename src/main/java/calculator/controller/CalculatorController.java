@@ -1,6 +1,5 @@
 package calculator.controller;
 
-import calculator.model.Numbers;
 import calculator.parser.DelimiterParser;
 
 import java.util.HashSet;
@@ -9,7 +8,7 @@ import java.util.Set;
 
 public class CalculatorController {
 
-    private DelimiterParser delimiterParser = new DelimiterParser();
+    private final DelimiterParser delimiterParser = new DelimiterParser();
 
     public Set<String> getDelimiters(String inputString) {
         Set<String> defaultDelimiters = new HashSet<>(List.of(",", ":"));
@@ -17,7 +16,7 @@ public class CalculatorController {
 
         if (!inputString.isEmpty()) {
             String customDelimiter = delimiterParser.parseCustomDelimiter(inputString);
-            if (customDelimiter.isEmpty()) {
+            if (!customDelimiter.isEmpty()) {
                 delimiters.add(customDelimiter);
             }
         }
