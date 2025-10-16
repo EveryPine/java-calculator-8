@@ -16,7 +16,6 @@ public class DelimiterParser {
             customDelimiter = matcher.group()
                     .replace("//", "")
                     .replace("\\n", "");
-            System.out.println("customDelimiter:" + customDelimiter);
         }
         return customDelimiter;
     }
