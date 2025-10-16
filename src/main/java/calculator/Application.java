@@ -16,6 +16,7 @@ public class Application {
         String inputString = readLine();
 
         Set<String> delimiters = controller.getDelimiters(inputString);
+        controller.validateInputString(inputString, delimiters);
 
     }
 }

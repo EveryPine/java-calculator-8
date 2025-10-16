@@ -1,6 +1,7 @@
 package calculator.controller;
 
 import calculator.parser.DelimiterParser;
+import calculator.validator.InputValidator;
 
 import java.util.HashSet;
 import java.util.List;
@@ -23,7 +24,12 @@ public class CalculatorController {
         return delimiters;
     }
 
-    public Numbers getNumbers(String inputString, Set<String> delimiters) {
+    public void validateInputString(String inputString, Set<String> delimiters) {
+        InputValidator inputValidator = new InputValidator(inputString, delimiters);
 
+        if (!inputValidator.validate()) {
+            throw new IllegalArgumentException("올바른 형식이 아닙니다.");
+        }
+        System.out.println("문자열 검증 완료");
     }
 }
