@@ -18,5 +18,7 @@ public class Application {
         Set<String> delimiters = controller.getDelimiters(inputString);
         controller.validateInputString(inputString, delimiters);
 
+        long result = controller.calculate(inputString, delimiters);
+        System.out.println("결과 : " + result);
     }
 }

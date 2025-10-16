@@ -1,6 +1,7 @@
 package calculator.controller;
 
 import calculator.parser.DelimiterParser;
+import calculator.parser.NumberParser;
 import calculator.validator.InputValidator;
 
 import java.util.HashSet;
@@ -31,5 +32,14 @@ public class CalculatorController {
             throw new IllegalArgumentException("올바른 형식이 아닙니다.");
         }
         System.out.println("문자열 검증 완료");
+    }
+
+    public long calculate(String inputString, Set<String> delimiters) {
+        NumberParser numberParser = new NumberParser(inputString, delimiters);
+        List<Long> numbers = numberParser.parse();
+
+        return numbers.stream()
+                .mapToLong(Long::longValue)
+                .sum();
     }
 }
