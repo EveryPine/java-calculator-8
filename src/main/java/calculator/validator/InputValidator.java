@@ -30,7 +30,7 @@ public class InputValidator {
     }
 
     private String setInputStringRegex() {
-        String inputStringRegex = "^(\\d([" + delimiterString + "]\\d)*)?$";
+        String inputStringRegex = "^(\\d+([" + delimiterString + "]\\d+)*)?$";
         if (delimiterString.length() == CUSTOM_DELIM_COUNT) {
             inputStringRegex = "^//\\D\\\\n" + inputStringRegex.substring(1);
         }
