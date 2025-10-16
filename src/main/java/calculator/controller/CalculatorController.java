@@ -1,5 +1,6 @@
 package calculator.controller;
 
+import calculator.model.Numbers;
 import calculator.parser.DelimiterParser;
 
 import java.util.HashSet;
@@ -21,5 +22,9 @@ public class CalculatorController {
             }
         }
         return delimiters;
+    }
+
+    public Numbers getNumbers(String inputString, Set<String> delimiters) {
+
     }
 }
