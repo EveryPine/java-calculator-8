@@ -17,7 +17,7 @@ public class InputValidator {
 
     public InputValidator(String inputString, Set<String> delimiters) {
         this.inputString = inputString;
-        this.delimiterString = String.join("", delimiters);
+        this.delimiterString = setDelimiterString(delimiters);
         this.inputStringRegex = setInputStringRegex();
     }
 
@@ -43,5 +43,22 @@ public class InputValidator {
             inputStringRegex = "^//\\D\\\\n" + inputStringRegex.substring(1);
         }
         return inputStringRegex;
+    }
+
+    private String setDelimiterString(Set<String> delimiters) {
+        String delimiterString = String.join("", delimiters);
+        delimiterString = moveHyphenToEnd(delimiterString);
+
+        return delimiterString;
+    }
+
+    private String moveHyphenToEnd(String delimiterString) {
+        int hyphenIndex = delimiterString.indexOf("-");
+        int middleIndex = 1;
+
+        if (hyphenIndex == middleIndex) {
+            delimiterString = delimiterString.replace("-", "") + "-";
+        }
+        return delimiterString;
     }
 }
