@@ -4,6 +4,9 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * 입력 문자열의 유효성을 검증하는 클래스입니다.
+ */
 public class InputValidator {
 
     private final int CUSTOM_DELIM_COUNT = 3;
@@ -18,6 +21,11 @@ public class InputValidator {
         this.inputStringRegex = setInputStringRegex();
     }
 
+    /**
+     * 저장된 문자열이 유효한지 검증합니다.
+     *
+     * @return 문자열이 유효하면 true, 유효하지 않으면 false
+     */
     public boolean validate() {
         boolean isValid = true;
         Matcher matcher = Pattern.compile(inputStringRegex).matcher(inputString);
