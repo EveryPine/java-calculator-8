@@ -47,7 +47,6 @@ public class CalculatorController {
         if (!inputValidator.validate()) {
             throw new IllegalArgumentException("올바른 형식이 아닙니다.");
         }
-        System.out.println("문자열 검증 완료");
     }
 
     /**
